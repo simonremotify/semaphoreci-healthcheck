@@ -1,22 +1,16 @@
 # How to Run a Cloud-based `cron` Job Every 5 Minutes with Semaphore
 
-[] Fix the 'user experience' of forking the repo to follow the tutorial. How best to provide this given how Semaphore finds .semaphore on master?
-
-[] Open Log-in link in a new tab?
-
-[] Merge set-up-semaphore branch into master before setting up schedule?  It's a bit yucky configuring the scheduler to use the `set-up-semaphore` branch, but extra steps to have the reader merge that branch in...
-
-[] Add highlighting to diagrams to show which field/button etc. is being referred to?
-
-[] Use inline CSS for shadows on images? e.g.
+- [ ] Fix the 'user experience' of forking the repo to follow the tutorial. How best to provide this given how Semaphore finds .semaphore on master?
+- [ ] Open Log-in link in a new tab?
+- [ ] Merge set-up-semaphore branch into master before setting up schedule?  It's a bit yucky configuring the scheduler to use the `set-up-semaphore` branch, but extra steps to have the reader merge that branch in...
+- [ ] Add highlighting to diagrams to show which field/button etc. is being referred to?
+- [ ] Use inline CSS for shadows on images? e.g.
 
 <img src="img/scheduler_section_before.png" style="box-shadow: 0px 0px 20px #CCCCCC"/>
 
-[] Adjust size/resolution of screenshots?
-
-[] Do we want to elaborate on Slack integration? (especially considering this is a trial task - will the article ever be published?)
-
-[] Remove capitalisation of workflow concepts like Command, Job, Pipeline
+- [ ] Adjust size/resolution of screenshots?
+- [ ] Do we want to elaborate on Slack integration? (especially considering this is a trial task - will the article ever be published?)
+- [ ] Remove capitalisation of workflow concepts like Command, Job, Pipeline
 
 ### Introduction
 
