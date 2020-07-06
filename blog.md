@@ -1,16 +1,17 @@
 ## TODO
 
 - [ ] Fix the 'user experience' of forking the repo to follow the tutorial. How best to provide this given how Semaphore finds .semaphore on master?
-- [ ] Open Log-in link in a new tab?
-- [ ] Merge set-up-semaphore branch into master before setting up schedule?  It's a bit yucky configuring the scheduler to use the `set-up-semaphore` branch, but extra steps to have the reader merge that branch in...
+- [ ] Open Log-in link in a new tab? [Here](#Create-your-Semaphore-project-and-choose-a-starter-Workflow)
+- [ ] Merge set-up-semaphore branch into master before setting up schedule?  It's a bit yucky [here](#Schedule-your-pipeline-to-run-every-5-minutes) configuring the scheduler to use the `set-up-semaphore` branch, but extra steps to have the reader merge that branch in...
 - [ ] Add highlighting to diagrams to show which field/button etc. is being referred to?
-- [ ] Use inline CSS for shadows on images? e.g.
+- [ ] Lack of border/shadow on screenshots harms readability IMO.  Is it possible to use inline CSS (or a stylesheet or something) for shadows on images? e.g.
 
 <img src="img/scheduler_section_before.png" style="box-shadow: 0px 0px 20px #CCCCCC"/>
 
-- [ ] Adjust size/resolution of screenshots?
-- [ ] Do we want to elaborate on Slack integration? (especially considering this is a trial task - will the article ever be published?)
-- [ ] Remove capitalisation of workflow concepts like Command, Job, Pipeline
+(Which appears not to work on GitHub!)
+
+- [ ] Adjust size/resolution of screenshots - the text in screenshots on my browser is of a similar size to the article text and this harms readability?
+- [ ] Do we want to elaborate on Slack integration instead of just mentioning it at the end? (especially considering this is a trial task - will the article ever be published?)
 
 # How to Run a Cloud-based `cron` Job Every 5 Minutes with Semaphore
 
