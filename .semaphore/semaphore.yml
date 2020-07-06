@@ -10,6 +10,5 @@ blocks:
       jobs:
         - name: 'Job #1'
           commands:
-            - 'checkout '
-            - './run_healthcheck.sh'
-
+            - checkout
+            - ./run_healthcheck.sh
