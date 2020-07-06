@@ -1,7 +1,18 @@
 # How to Run a Cloud-based `cron` Job Every 5 Minutes with Semaphore
 
-[] Create the repo fork that has only the script in
+[] Fix the 'user experience' of forking the repo to follow the tutorial. How best to provide this given how Semaphore finds .semaphore on master?
+
 [] Open Log-in link in a new tab?
+
+[] Merge set-up-semaphore branch into master before setting up schedule?  It's a bit yucky configuring the scheduler to use the `set-up-semaphore` branch, but extra steps to have the reader merge that branch in...
+
+[] Use inline CSS for shadows on images? e.g.
+
+<img src="img/scheduler_section_before.png" style="box-shadow: 0px 0px 20px #CCCCCC"/>
+
+[] Adjust size/resolution of screenshots?
+
+[] Elaborate on Slack integration (this is a trial task - will the article ever be published?)
 
 ### Introduction
 
@@ -15,6 +26,8 @@ To follow this tutorial, you will need:
 
 * Git, a GitHub account and a working knowledge of forking, branches, committing and pushing.
 * A Semaphore account. You can get one for free at semaphoreci.com.
+
+Let's get started!
 
 ## Create your Website Healthcheck Repository in GitHub
 
@@ -94,24 +107,59 @@ The curious can learn more about the [`checkout` command that appears in the job
 
 ## Run the Workflow and check the output
 
-* Click **Run the workflow**.  All worklfows execute from version-controlled configuration stored in your repository, so you can always reproduce the result of a workflow.  The dialog that pops up allows you customise the branch and commit message that will be pushed to your repository.
+* Click **Run the workflow**.  All workflows execute from version-controlled configuration stored in your repository, so you can always reproduce the result of a workflow.  The dialog that pops up allows you customise the branch and commit message that will be pushed to your repository.
 
 ![Run the workflow dialog](img/run_the_workflow.png)
 
-* Click **Start**
+* Clicking **Start** will cause Semaphore to push the new `.semaphore/semaphore.yml` file to the named branch, which it will create if necessary.  The pipeline will run and in a few seconds the result will be displayed.
 
-Initially goes to set-up-semaphore branch
+![Workflow run result](img/workflow_run_result.png)
 
-Check it works
+The pipeline, with it's single job, passed.  Maybe you've had the experience in the past where, when something seems to work first time, nothing was happening at all? We can check that the job passed for the expected reason by checking the log.
 
-Schedule your pipeline to run every 5 minutes
+* Simply click on the **Healthcheck Job** to see the log.
 
-Tada!
+![Healthcheck Job Log](img/healthcheck_job_log.png)
 
-How to take this further (e.g. command line tools)
+Line 83 is the output from the `run_healthcheck.sh` script, which has run and succeeded with a `0` exit code.
 
-Create the healthcheck Bash script and get it into a repo (here's my (draft) repo: https://github.com/simonremotify/semaphoreci-healthcheck)
-Create the Semaphore pipeline in the UI and check the output is as expected
-Schedule the pipeline through the UI
-Set up notifications in Slack to alert the appropriate team if the check fails
-Voila!
+## Schedule your pipeline to run every 5 minutes
+
+The configuration we've done so far has created a pipeline that will be run, according to Semaphore's default settings, whenever there is a push to the repository.  The next stage is for us to schedule the running of the pipeline.
+
+* Return to your new project's main page by clicking the project name in the left side-bar
+* On the project's page, click **Settings**
+
+![Project toolbar](img/project_buttons.png)
+
+* Scroll to the **Scheduler** section, and click **Create New Schedule**
+
+![Settings scheduler section](img/scheduler_section_before.png)
+
+* Fill in the **Name of the Schedule** field
+* Set the branch to the one you just added the workflow to (`set-up-semaphore` by default)
+* Set the pipeline file to use (`.semaphore/semaphore.yml` by default)
+
+![Scheduler name, branch and pipeline fields](img/scheduler_fields1.png)
+
+* Type a schedule into the **When** field for every 5 minutes using `cron` syntax: `*/5 * * * *`. Help with the syntax can be found by following the **Crontab Guru** link.
+
+![Scheduler When field](img/scheduler_when_field.png)
+
+* Click **Create**!
+
+That's it!  You're done! To see the result of the scheduled run, return to your new project's main page.
+
+![Run result](img/run_result.png)
+
+You can see the history of results for a branch by clicking on the branch name.
+
+![Result history](img/result_history.png)
+
+## Conclusion
+
+You've seen how quick and simple it is to set up a Semaphore workflow from scratch and have it run according to a schedule.
+
+Currently, the results are visible from within your Semaphore account.  An even more useful setup can be achieved by having Semaphore notify you should the workflow ever detect a failure.  To find out more about that, take a look at this [Introduction to Slack Integration](https://semaphoreci.com/blog/2014/03/06/slack-integration.html) and the [Slack Notifications docs](https://docs.semaphoreci.com/essentials/slack-notifications/)
+
+Thanks for reading this tutorial!  If you'd like to find out more about what Semaphore CI is being used for, head over to the [Continuous Delivery Blog](https://semaphoreci.com/blog)!
