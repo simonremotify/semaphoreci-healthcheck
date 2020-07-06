@@ -1,4 +1,4 @@
-# How to Run a Cloud-based `cron` Job Every 5 Minutes with Semaphore
+## TODO
 
 - [ ] Fix the 'user experience' of forking the repo to follow the tutorial. How best to provide this given how Semaphore finds .semaphore on master?
 - [ ] Open Log-in link in a new tab?
@@ -11,6 +11,8 @@
 - [ ] Adjust size/resolution of screenshots?
 - [ ] Do we want to elaborate on Slack integration? (especially considering this is a trial task - will the article ever be published?)
 - [ ] Remove capitalisation of workflow concepts like Command, Job, Pipeline
+
+# How to Run a Cloud-based `cron` Job Every 5 Minutes with Semaphore
 
 ### Introduction
 
