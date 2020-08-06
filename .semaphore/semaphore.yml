@@ -8,8 +8,7 @@ blocks:
   - name: 'Block #1'
     task:
       jobs:
-        - name: 'Job #1'
+        - name: Healthcheck Job
           commands:
-            - 'checkout '
-            - './run_healthcheck.sh'
-
+            - checkout
+            - ./run_healthcheck.sh
